@@ -47,3 +47,7 @@ li span {
   padding: 10px;
   list: none;
 }
+
+.negative {
+  color: red;
+}

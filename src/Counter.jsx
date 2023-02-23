@@ -1,14 +1,21 @@
 import React from "react";
 
-function Counter({ text = "Counter", id, value }) {
+function Counter({
+  text = "Counter",
+  id,
+  value,
+  handleDecrease,
+  handleIncrease,
+}) {
   return (
     <li>
       <h1>{text}</h1>
-      <button>-</button>
-      <span>{value}</span>
-      <button>+</button>
+      <button onClick={() => handleDecrease(id)}>-</button>
+      <span className={value <= 0 && "negative"}>{value}</span>
+      <button onClick={() => handleIncrease(id)}>+</button>
     </li>
   );
 }
 
 export default Counter;
+ 
