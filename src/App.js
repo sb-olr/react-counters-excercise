@@ -1,25 +1,62 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Counter from "./Counter";
+import "./styles.css";
 
-function App() {
+export default function App() {
+  const [counters, setCounters] = useState([
+    { id: "1", value: 0, text: "new name" },
+    { id: "2", value: 0 },
+    { id: "3", value: 0 },
+  ]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
+    <>
+      <div className={"block"}>
+        <h1>Make It Count</h1>
+        Your goal: implement a page showing <strong>3 counters</strong>
+        <br />
+        <ul>
+          <li>every counter has a + and a - button</li>
+          <li>
+            for every counter, clicking on + will increase the count number on
+            that single counter
+          </li>
+          <li>
+            for every counter, clicking on - will decrease the count number on
+            that single counter
+          </li>
+          <li>
+            the page will have 2 extra buttons "decrease all" and "increase all"
+          </li>
+          <li>
+            clicking on "increase all" will increase the count of one unit on
+            all the counters
+          </li>
+          <li>
+            clicking on "decrease all" will decrease the count of one unit on
+            all the counters
+          </li>
+        </ul>
         <a
-          className="App-link"
-          href="https://reactjs.org"
           target="_blank"
           rel="noopener noreferrer"
+          href="https://reactjs.org/docs/state-and-lifecycle.html"
         >
-          Learn React
+          Help
         </a>
-      </header>
-    </div>
+      </div>
+
+      <div className={"block"}>
+        <ul className={"counters"}>
+          {counters.map((counter) => (
+            <Counter
+              key={counter.id}
+              id={counter.id}
+              value={counter.value}
+              text={counter.text}
+            />
+          ))}
+        </ul>
+      </div>
+    </>
   );
 }
-
-export default App;
