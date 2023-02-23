@@ -11,7 +11,7 @@ function Counter({
     <li>
       <h1>{text}</h1>
       <button onClick={() => handleDecrease(id)}>-</button>
-      <span className={value <= 0 && "negative"}>{value}</span>
+      <span className={value <= 0 ? "negative" : ""}>{value}</span>
       <button onClick={() => handleIncrease(id)}>+</button>
     </li>
   );
